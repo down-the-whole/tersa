@@ -1,11 +1,14 @@
 {
-  "name": "tersa",
+  "name": "@down-the-whole/tersa",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Christian Battaglia <christian.d.battaglia@gmail.com>",
   "license": "MIT",
+   "bin": {
+       "tersa": "bin/tersa.js"
+   },
   "scripts": {},
-  "devDependencies": {
+  "peerDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
     "@babel/node": "^7.10.5",

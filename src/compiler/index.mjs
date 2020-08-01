@@ -9,6 +9,8 @@ import DefaultBabelOptionsFunction from '../../babel.config.js'
 
 const fsExtra = fsExtraDefault.default
 
+const fileMatch = (/(.ts|.js|.mjs)$/)
+
 const cwd = process.cwd()
 
 const recursiveAsync = promisify(recursive)
@@ -30,14 +32,14 @@ const transform = async (srcDir, destDir) => {
 
         const fileName = pathArray[pathArray.length-1]
 
-        const match = (/(.ts|.js)$/).exec(fileName)
+        const match = fileMatch.exec(fileName)
 
         if (match) {
             const raw = await readFileAsync(file)
 
             pathArray.shift()
 
-            const fileName = pathArray.join('/').replace(/(.ts|.js)$/, '.js')
+            const fileName = pathArray.join('/').replace(fileMatch, '.js')
 
             const babelOptions = {
                 filename: `${destination}/${fileName}`,
@@ -45,6 +47,8 @@ const transform = async (srcDir, destDir) => {
             }
 
             const content = await babel.transformAsync(raw, babelOptions)
+
+            content.code = content.code.replace('index.mjs', 'index.js')
 
             await fsExtra.outputFile(
                 content.options.filename,
