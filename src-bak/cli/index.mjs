@@ -1,6 +1,6 @@
 import yargs from 'yargs'
 
-import { transform } from '../compiler/index.mjs'
+import { transform } from '../compiler/index.js'
 
 const argv = yargs.options({
     srcDir: {
