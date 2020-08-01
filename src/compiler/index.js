@@ -3,9 +3,8 @@ import * as fsExtraDefault from 'fs-extra'
 import { promisify } from 'util'
 import path from 'path'
 
-import babel from '@babel/core'
+import * as babel from '@babel/core'
 import recursive from 'recursive-readdir'
-import DefaultBabelOptionsFunction from '../../babel.config.js'
 
 const fsExtra = fsExtraDefault.default
 
@@ -17,9 +16,32 @@ const recursiveAsync = promisify(recursive)
 const readFileAsync = promisify(readFile)
 // const writeFileAsync = promisify(writeFile)
 
-const cache = () => {}
+const DefaultBabelOptions = {
+    presets: [
+        [
+            '@babel/preset-env',
+            {
+                // 'loose': true,
+                // 'debug': true,
+                'targets': {
+                    'node': 'current'
+                }
+            }
+        ],
+        '@babel/preset-typescript'
+    ],
+    plugins: [
+        '@babel/plugin-transform-runtime',
+        '@babel/plugin-syntax-dynamic-import',
+        [
+            "@babel/plugin-transform-arrow-functions",
+            {
+                "spec": true
+            },
+        ],
 
-const DefaultBabelOptions = DefaultBabelOptionsFunction({cache})
+    ],
+}
 
 const transform = async (srcDir, destDir) => {
     const workingDir = path.join(cwd, srcDir)
