@@ -49,7 +49,7 @@ const transform = async (srcDir, destDir) => {
 
     const files = await recursiveAsync(workingDir)
 
-    console.log(files)
+    // console.log(files)
 
     files.forEach(async (file) => {
         const pathArray = file.split(workingDir)[1].split(path.sep)
@@ -74,8 +74,8 @@ const transform = async (srcDir, destDir) => {
 
             const content = await babel.transformAsync(raw, babelOptions)
 
-            console.log(content)
-            console.log(content.options.plugins)
+            // console.log(content)
+            // console.log(content.options.plugins)
 
             content.code = content.code.replace('index.mjs', 'index.js')
 
