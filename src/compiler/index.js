@@ -28,7 +28,7 @@ const DefaultBabelOptions = {
                 }
             }
         ],
-        '@babel/preset-typescript'
+        // '@babel/preset-typescript'
     ],
     plugins: [
         '@babel/plugin-transform-runtime',
@@ -39,7 +39,7 @@ const DefaultBabelOptions = {
                 "spec": true
             },
         ],
-
+        '@babel/plugin-transform-typescript',
     ],
 }
 
@@ -48,6 +48,8 @@ const transform = async (srcDir, destDir) => {
     const destination = path.join(cwd, destDir)
 
     const files = await recursiveAsync(workingDir)
+
+    console.log(files)
 
     files.forEach(async (file) => {
         const pathArray = file.split(workingDir)[1].split(path.sep)
@@ -68,7 +70,12 @@ const transform = async (srcDir, destDir) => {
                 ...DefaultBabelOptions
             }
 
+            // console.log(babelOptions)
+
             const content = await babel.transformAsync(raw, babelOptions)
+
+            console.log(content)
+            console.log(content.options.plugins)
 
             content.code = content.code.replace('index.mjs', 'index.js')
 
