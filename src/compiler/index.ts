@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'fs'
+import { readFile } from 'fs'
 import * as fsExtraDefault from 'fs-extra'
 import { promisify } from 'util'
 import path from 'path'

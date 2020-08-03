@@ -1,3 +1,6 @@
+process.env.NODE_PATH = `${process.env.NODE_PATH}:${__dirname}/..`
+require("module").Module._initPaths()
+
 import path from 'path'
 import { exec, ChildProcess } from 'child_process'
 import yargs from 'yargs'
