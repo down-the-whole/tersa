@@ -39,13 +39,11 @@ const argv = yargs
 const src = path.resolve(argv.srcDir)
 const dest = path.resolve(argv.destDir)
 
-let childProc: ChildProcess
-
 const sleep = (ms: number) => {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-const start = () => {
+const start = () : ChildProcess => {
     const process = exec(
         `node ${argv.entrypoint}`
     )
@@ -64,14 +62,14 @@ const build = async () => {
         src,
         dest,
     )
-
-    childProc = start()
 }
 
 const watch = async () => {
     console.log(`watching & building ${src}`)
 
     await build()
+
+    let childProc = start()
 
     const watcher = chokidar.watch(
         src,

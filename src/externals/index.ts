@@ -1,5 +1,0 @@
-import '@babel/preset-env'
-import '@babel/plugin-transform-runtime'
-import '@babel/plugin-syntax-dynamic-import'
-import '@babel/plugin-transform-arrow-functions'
-import '@babel/plugin-transform-typescript'

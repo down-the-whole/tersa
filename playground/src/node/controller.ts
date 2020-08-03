@@ -5,5 +5,5 @@ export const index = (req: Request, res: Response) => {
 }
 
 export const hello = (req: Request, res: Response) => {
-    res.send('Hello, Christian!')
+    res.send('Hello, Oriane!')
 }

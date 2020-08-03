@@ -5,45 +5,19 @@ import path from 'path'
 
 import * as babel from '@babel/core'
 import recursive from 'recursive-readdir'
-
-import '../externals/index.ts'
+import babelOptions from '../../babel.config'
 
 const fsExtra = fsExtraDefault.default
 
 const fileMatch = (/(.ts|.js|.mjs)$/)
 
-const cwd = process.cwd()
+// const cwd = process.cwd()
 
 const recursiveAsync = promisify(recursive)
 const readFileAsync = promisify(readFile)
 // const writeFileAsync = promisify(writeFile)
 
-const DefaultBabelOptions = {
-    presets: [
-        [
-            '@babel/preset-env',
-            {
-                // 'loose': true,
-                // 'debug': true,
-                'targets': {
-                    'node': 'current'
-                }
-            }
-        ],
-        // '@babel/preset-typescript'
-    ],
-    plugins: [
-        '@babel/plugin-transform-runtime',
-        '@babel/plugin-syntax-dynamic-import',
-        [
-            '@babel/plugin-transform-arrow-functions',
-            {
-                spec: true,
-            },
-        ],
-        '@babel/plugin-transform-typescript',
-    ],
-}
+const defaultBabelOptions = babelOptions()
 
 const transform = async (srcDir, destDir) => {
     const workingDir = path.resolve(srcDir)
@@ -69,7 +43,9 @@ const transform = async (srcDir, destDir) => {
 
             const babelOptions = {
                 filename: `${destination}/${fileName}`,
-                ...DefaultBabelOptions
+                babelrc: false,
+                configFile: false,
+                ...defaultBabelOptions
             }
 
             // console.log(babelOptions)

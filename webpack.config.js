@@ -1,9 +1,15 @@
 const webpack = require('webpack')
+const path = require('path')
 
-var base = require('./webpack.base.conf')
+const projectExternals = require('./externals')
+const base = require('./webpack.base.conf')
 
 // base.externals.push(
 //     function (context, request, callback) {
+//         console.log(`context\n${context}`)
+//         console.log(`request\n${request}`)
+//         console.log(`callback\n${callback}`)
+
 //         if (request[0] == '.') {
 //             callback()
 //         } else {
@@ -12,14 +18,15 @@ var base = require('./webpack.base.conf')
 //     }
 // )
 
-// base.plugins = [
-//     new webpack.ContextReplacementPlugin(
-//         /express\/lib/,
-//         resolve('node_modules'),
-//         {
-//             'ejs': 'ejs'
-//         }
+// Object.keys('projectExternals').forEach((external) => {
+//     base.plugins.push(
+//         new webpack.ContextReplacementPlugin(
+//             new RegExp(external),
+//             path.resolve('node_modules'), {
+//                 external,
+//             },
+//         )
 //     )
-// ]
+// })
 
 module.exports = base

@@ -1,10 +1,10 @@
 module.exports = function (api) {
-    api.cache(true)
+    if (api) api.cache(true)
 
     return {
         presets: [
             [
-                '@babel/preset-env',
+                require('@babel/preset-env'),
                 {
                     // 'loose': true,
                     // 'debug': true,
@@ -13,18 +13,18 @@ module.exports = function (api) {
                     }
                 }
             ],
-            '@babel/preset-typescript'
+            require('@babel/preset-typescript'),
         ],
         plugins: [
-            '@babel/plugin-transform-runtime',
-            '@babel/plugin-syntax-dynamic-import',
+            require('@babel/plugin-transform-runtime'),
+            require('@babel/plugin-syntax-dynamic-import'),
             [
-                "@babel/plugin-transform-arrow-functions",
+                require('@babel/plugin-transform-arrow-functions'),
                 {
-                    "spec": true
+                    spec: true
                 },
             ],
-            '@babel/plugin-transform-typescript'
+            require('@babel/plugin-transform-typescript'),
         ],
     }
 }

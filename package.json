@@ -43,6 +43,7 @@
     },
     "devDependencies": {
         "express": "^4.17.1",
-        "portscanner": "^2.2.0"
+        "portscanner": "^2.2.0",
+        "webpack-bundle-analyzer": "^3.8.0"
     }
 }
