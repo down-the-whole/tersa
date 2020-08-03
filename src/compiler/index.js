@@ -44,8 +44,8 @@ const DefaultBabelOptions = {
 }
 
 const transform = async (srcDir, destDir) => {
-    const workingDir = path.join(cwd, srcDir)
-    const destination = path.join(cwd, destDir)
+    const workingDir = path.resolve(srcDir)
+    const destination = path.resolve(destDir)
 
     const files = await recursiveAsync(workingDir)
 

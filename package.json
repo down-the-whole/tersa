@@ -8,7 +8,11 @@
         "tersa": "bin/tersa.js"
     },
     "scripts": {
-        "build": "webpack"
+        "build": "webpack",
+        "build:playground": "node build/bundle.js --cmd build --srcDir playground/src/node --destDir playground/dist/node",
+        "start": "npm run build && npm run build:playground && concurrently \"npm run start:playground:node\" \"npm run watch\"",
+        "start:playground:node": "node playground/dist/node/index.js",
+        "watch": "node build/bundle.js --cmd watch --srcDir playground/src/node --destDir playground/dist/node"
     },
     "devDependencies": {
         "@babel/cli": "^7.10.5",
@@ -23,6 +27,8 @@
         "@babel/preset-typescript": "^7.10.4",
         "@types/yargs": "^15.0.5",
         "babel-loader": "^8.1.0",
+        "chokidar": "^3.4.1",
+        "concurrently": "^5.2.0",
         "file-loader": "^6.0.0",
         "fs-extra": "^9.0.1",
         "recursive-readdir": "^2.2.2",
@@ -30,5 +36,8 @@
         "webpack-cli": "^3.3.12",
         "webpack-node-externals": "^2.5.0",
         "yargs": "^15.4.1"
+    },
+    "dependencies": {
+        "express": "^4.17.1"
     }
 }
