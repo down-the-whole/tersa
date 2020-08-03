@@ -37,17 +37,17 @@ module.exports = {
             }
         ],
     },
-    // externals: [nodeExternals()],
-    externals: [nodeExternals({
-        allowlist: [
-            '@babel/core',
-            '@babel/preset-env',
-            '@babel/plugin-transform-runtime',
-            '@babel/plugin-syntax-dynamic-import',
-            '@babel/plugin-transform-arrow-functions',
-            '@babel/plugin-transform-typescript',
-            'chokidar',
-            'yargs'
-        ]
-    })],
+    externals: [nodeExternals()],
+    // externals: [nodeExternals({
+    //     allowlist: [
+    //         '@babel/core',
+    //         '@babel/preset-env',
+    //         '@babel/plugin-transform-runtime',
+    //         '@babel/plugin-syntax-dynamic-import',
+    //         '@babel/plugin-transform-arrow-functions',
+    //         '@babel/plugin-transform-typescript',
+    //         'chokidar',
+    //         'yargs'
+    //     ]
+    // })],
 }

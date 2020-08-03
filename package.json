@@ -33,6 +33,7 @@
         "file-loader": "^6.0.0",
         "fs-extra": "^9.0.1",
         "recursive-readdir": "^2.2.2",
+        "resolve": "^1.17.0",
         "webpack": "^4.44.1",
         "webpack-cli": "^3.3.12",
         "webpack-node-externals": "^2.5.0",

@@ -6,6 +6,7 @@ import path from 'path'
 import * as babel from '@babel/core'
 import recursive from 'recursive-readdir'
 
+require('resolve')
 require('@babel/preset-env')
 require('@babel/plugin-transform-runtime')
 require('@babel/plugin-syntax-dynamic-import')
