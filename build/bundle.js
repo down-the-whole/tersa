@@ -199,13 +199,13 @@ eval("module.exports = require(\"@babel/runtime/helpers/newArrowCheck\");\n\n//#
 /***/ }),
 
 /***/ "child_process":
-/*!********************************!*\
-  !*** external "child_process" ***!
-  \********************************/
+/*!*******************************************!*\
+  !*** external "require('child_process')" ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"child_process\");\n\n//# sourceURL=webpack:///external_%22child_process%22?");
+eval("module.exports = require('child_process');\n\n//# sourceURL=webpack:///external_%22require('child_process')%22?");
 
 /***/ }),
 
@@ -221,13 +221,13 @@ eval("module.exports = require(\"chokidar\");\n\n//# sourceURL=webpack:///extern
 /***/ }),
 
 /***/ "fs":
-/*!*********************!*\
-  !*** external "fs" ***!
-  \*********************/
+/*!********************************!*\
+  !*** external "require('fs')" ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"fs\");\n\n//# sourceURL=webpack:///external_%22fs%22?");
+eval("module.exports = require('fs');\n\n//# sourceURL=webpack:///external_%22require('fs')%22?");
 
 /***/ }),
 
@@ -243,24 +243,24 @@ eval("module.exports = require(\"fs-extra\");\n\n//# sourceURL=webpack:///extern
 /***/ }),
 
 /***/ "module":
-/*!*************************!*\
-  !*** external "module" ***!
-  \*************************/
+/*!************************************!*\
+  !*** external "require('module')" ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"module\");\n\n//# sourceURL=webpack:///external_%22module%22?");
+eval("module.exports = require('module');\n\n//# sourceURL=webpack:///external_%22require('module')%22?");
 
 /***/ }),
 
 /***/ "path":
-/*!***********************!*\
-  !*** external "path" ***!
-  \***********************/
+/*!**********************************!*\
+  !*** external "require('path')" ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"path\");\n\n//# sourceURL=webpack:///external_%22path%22?");
+eval("module.exports = require('path');\n\n//# sourceURL=webpack:///external_%22require('path')%22?");
 
 /***/ }),
 
