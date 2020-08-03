@@ -6,6 +6,12 @@ import path from 'path'
 import * as babel from '@babel/core'
 import recursive from 'recursive-readdir'
 
+require('@babel/preset-env')
+require('@babel/plugin-transform-runtime')
+require('@babel/plugin-syntax-dynamic-import')
+require('@babel/plugin-transform-arrow-functions')
+require('@babel/plugin-transform-typescript')
+
 const fsExtra = fsExtraDefault.default
 
 const fileMatch = (/(.ts|.js|.mjs)$/)
@@ -34,9 +40,9 @@ const DefaultBabelOptions = {
         '@babel/plugin-transform-runtime',
         '@babel/plugin-syntax-dynamic-import',
         [
-            "@babel/plugin-transform-arrow-functions",
+            '@babel/plugin-transform-arrow-functions',
             {
-                "spec": true
+                spec: true,
             },
         ],
         '@babel/plugin-transform-typescript',
