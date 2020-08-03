@@ -13,10 +13,8 @@ module.exports = function (api) {
                     }
                 }
             ],
-            require('@babel/preset-typescript'),
         ],
         plugins: [
-            require('@babel/plugin-transform-runtime'),
             require('@babel/plugin-syntax-dynamic-import'),
             [
                 require('@babel/plugin-transform-arrow-functions'),
