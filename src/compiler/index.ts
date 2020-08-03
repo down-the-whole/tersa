@@ -6,12 +6,7 @@ import path from 'path'
 import * as babel from '@babel/core'
 import recursive from 'recursive-readdir'
 
-require('resolve')
-require('@babel/preset-env')
-require('@babel/plugin-transform-runtime')
-require('@babel/plugin-syntax-dynamic-import')
-require('@babel/plugin-transform-arrow-functions')
-require('@babel/plugin-transform-typescript')
+import '../externals/index.ts'
 
 const fsExtra = fsExtraDefault.default
 

@@ -1,0 +1,6 @@
+[submodule "modules/next.js"]
+	path = modules/next.js
+	url = git@github.com:vercel/next.js.git
+[submodule "modules/vite"]
+	path = modules/vite
+	url = git@github.com:vitejs/vite.git
