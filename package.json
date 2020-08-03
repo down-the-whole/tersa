@@ -10,7 +10,6 @@
     "scripts": {
         "build": "webpack",
         "build:playground:node": "node build/bundle.js build --srcDir playground/src/node --destDir playground/dist/node --entrypoint playground/dist/node/index.js",
-        "postinstall": "sh scripts/rsync-babel-modules.sh",
         "start": "yarn run build && yarn run watch:playground:node",
         "watch:playground:node": "node build/bundle.js watch --srcDir playground/src/node --destDir playground/dist/node --entrypoint playground/dist/node/index.js"
     },
