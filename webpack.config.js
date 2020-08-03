@@ -11,7 +11,7 @@ module.exports = {
     //     __filename: false,
     // },
     entry: {
-        app: ['./src/cli/index.js']
+        app: ['./src/cli/index.ts']
     },
     output: {
         path: path.resolve(__dirname, 'build'),
