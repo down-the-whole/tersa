@@ -6,11 +6,12 @@ module.exports = function (api) {
             [
                 require('@babel/preset-env'),
                 {
-                    // 'loose': true,
-                    // 'debug': true,
-                    'targets': {
-                        'node': 'current'
-                    }
+                    // loose: true,
+                    debug: true,
+                    targets: {
+                        node: 'current',
+                    },
+                    // useBuiltIns: 'usage',
                 }
             ],
             require('@babel/preset-typescript'),

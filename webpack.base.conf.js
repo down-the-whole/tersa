@@ -1,34 +1,29 @@
-const path = require('path')
+const { resolve } = require('path')
 const webpack = require('webpack')
-const nodeExternals = require('webpack-node-externals')
 
 const babelConfig = require('./babel.config')
-const projectExternals = require('./externals')
-
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
-const resolve = relativePath => path.resolve(__dirname, relativePath)
 
 module.exports = {
-    // cache: true,
     mode: 'development',
     target: 'node',
+    stats: {
+        warnings: false
+    },
     node: {
-        // global: true,
         __filename: false,
         __dirname: false,
     },
     entry: {
-        app: ['./src/cli/index.ts'],
-        // '@babel/plugin-transform-runtime': '@babel/plugin-transform-runtime',
+        'wepack-babel': resolve('./src/cli/index.ts'),
+        vite: resolve('./src/vite-test.ts'),
     },
     output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'bundle.js'
+        path: resolve(__dirname, 'build'),
+        filename: '[name].js'
     },
-    // resolve: {
-    //     extensions: ['.js', '.ts']
-    // },
+    externals: {
+        fsevents: "require('fsevents')"
+    },
     module: {
         rules: [
             {
@@ -42,39 +37,16 @@ module.exports = {
                     babelrc: false,
                 }
             },
-            // {
-            //     test: /\.config\.js$/,
-            //     exclude: /node_modules/,
-            //     loader: "file-loader",
-            //     options: {
-            //         // name: "./conf/[name]-[hash:base36:4].[ext]",
-            //     },
-            // },
-            // {
-            //     test: /\.node$/,
-            //     loader: 'node-loader',
-            // },
         ],
     },
-    externals: {
-        fsevents: "require('fsevents')"
-    },
     plugins: [
-        // new BundleAnalyzerPlugin(),
-    ],
-    stats: {
-        warnings: false
-    },
-    // plugins: [
-    //     new webpack.ProvidePlugin(projectExternals)
-    // ],
-    // externals: [nodeExternals()],
-    // externals: [nodeExternals({
-    //     allowlist: Object.keys(projectExternals),
-    // })],
-    // resolveLoader: {
-    //     modules: [
-    //         __dirname + '/node_modules'
-    //     ]
-    // },
+        // new webpack.IgnorePlugin({
+        //     checkResource(resource) {
+        //         switch(resource) {
+        //         case /.config/
+        //         }
+        //         return false
+        //     },
+        // })
+    ]
 }

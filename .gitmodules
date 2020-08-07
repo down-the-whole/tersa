@@ -4,3 +4,6 @@
 [submodule "modules/vite"]
 	path = modules/vite
 	url = git@github.com:vitejs/vite.git
+[submodule "modules/fusionjs"]
+	path = modules/fusionjs
+	url = git@github.com:fusionjs/fusionjs.git
