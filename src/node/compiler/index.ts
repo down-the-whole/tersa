@@ -1,11 +1,14 @@
+console.log('hello world')
+
 import { readFile } from 'fs'
-import * as fsExtraDefault from 'fs-extra'
 import { promisify } from 'util'
 import path from 'path'
 
 import * as babel from '@babel/core'
 import recursive from 'recursive-readdir'
-import babelOptions from '../../babel.config'
+import * as fsExtraDefault from 'fs-extra'
+
+import babelOptions from '../babel.config'
 
 const fsExtra = fsExtraDefault.default
 

@@ -3,7 +3,7 @@ import { exec, ChildProcess } from 'child_process'
 import yargs from 'yargs'
 import chokidar from 'chokidar'
 
-import { transform } from '../compiler/index.ts'
+import { transform } from '../compiler/index'
 
 const yargsOptions = {
     srcDir: {
@@ -24,11 +24,13 @@ const argv = yargs
     .command(
         'watch',
         'build and watch for changes',
+        //@ts-ignore
         yargsOptions,
     )
     .command(
         'build',
         'build from srcDir',
+        //@ts-ignore
         yargsOptions
     )
     .demandCommand()
@@ -36,8 +38,8 @@ const argv = yargs
     .argv
 
 
-const src = path.resolve(argv.srcDir)
-const dest = path.resolve(argv.destDir)
+const src = path.resolve(argv.srcDir as string)
+const dest = path.resolve(argv.destDir as string)
 
 const sleep = (ms: number) => {
     return new Promise(resolve => setTimeout(resolve, ms))
@@ -48,9 +50,8 @@ const start = () : ChildProcess => {
         `node ${argv.entrypoint}`
     )
 
-    process.stderr.on('data', console.log)
-    process.stdin.on('data', console.log)
-    process.stdout.on('data', console.log)
+    process.stderr?.on('data', console.log)
+    process.stdout?.on('data', console.log)
 
     return process
 }
