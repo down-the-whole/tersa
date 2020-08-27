@@ -8,17 +8,14 @@ import * as babel from '@babel/core'
 import recursive from 'recursive-readdir'
 import * as fsExtraDefault from 'fs-extra'
 
-import babelOptions from '../babel.config'
+import babelOptions from './babel.config'
 
 const fsExtra = fsExtraDefault.default
 
 const fileMatch = (/(.ts|.js|.mjs)$/)
 
-// const cwd = process.cwd()
-
 const recursiveAsync = promisify(recursive)
 const readFileAsync = promisify(readFile)
-// const writeFileAsync = promisify(writeFile)
 
 const defaultBabelOptions = babelOptions()
 
@@ -27,8 +24,6 @@ const transform = async (srcDir, destDir) => {
     const destination = path.resolve(destDir)
 
     const files = await recursiveAsync(workingDir)
-
-    // console.log(files)
 
     files.forEach(async (file) => {
         const pathArray = file.split(workingDir)[1].split(path.sep)

@@ -3,7 +3,7 @@ import { exec, ChildProcess } from 'child_process'
 import yargs from 'yargs'
 import chokidar from 'chokidar'
 
-import { transform } from '../compiler/index'
+import { transform } from '../compiler/babel'
 
 const yargsOptions = {
     srcDir: {

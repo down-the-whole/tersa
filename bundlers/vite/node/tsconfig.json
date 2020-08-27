@@ -1,0 +1,14 @@
+{
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "outDir": "../../dist/node",
+        "module": "commonjs",
+        "lib": [
+            "ESNext",
+            "dom",
+            "dom.iterable",
+        ],
+        "sourceMap": true
+    },
+    "include": ["./", "../../../src/compiler/vite/vite.config.ts"]
+}

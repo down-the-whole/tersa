@@ -8,12 +8,12 @@
         "tersa": "bin/tersa.js"
     },
     "scripts": {
-        "build:cli:tsc": "tsc --incremental --p src/node",
+        "build:cli:tsc": "tsc --incremental --p src",
         "build:playground:node": "tersa build --srcDir playground/src/node --destDir playground/dist/node --entrypoint playground/dist/node/index.js",
         "start": "yarn run build:cli:tsc && yarn run watch:playground:node",
         "watch:playground:node": "tersa watch --srcDir playground/src/node --destDir playground/dist/node --entrypoint playground/dist/node/index.js"
     },
-    "dependencies": {
+    "devDependencies": {
         "@babel/cli": "^7.10.5",
         "@babel/core": "^7.10.5",
         "@babel/node": "^7.10.5",
@@ -25,6 +25,7 @@
         "@babel/preset-env": "^7.10.4",
         "@babel/preset-typescript": "^7.10.4",
         "@babel/runtime": "^7.11.0",
+        "@prefresh/vite": "^1.0.1",
         "@types/express": "^4.17.7",
         "@types/yargs": "^15.0.5",
         "babel-loader": "^8.1.0",
@@ -47,5 +48,7 @@
         "webpack-node-externals": "^2.5.0",
         "yargs": "^15.4.1"
     },
-    "devDependencies": {}
+    "dependencies": {
+        "preact": "^10.4.8"
+    }
 }
