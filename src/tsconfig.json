@@ -3,11 +3,16 @@
     "compilerOptions": {
         "outDir": "../dist",
         "module": "commonjs",
-        "lib": ["ESNext"],
+        "lib": [
+            "ESNext",
+            "dom",
+            "dom.iterable"
+        ],
         "sourceMap": true
     },
     "include": [
         "./compiler",
-        "./cli", "routes"
+        "./cli",
+        "routes"
     ]
 }

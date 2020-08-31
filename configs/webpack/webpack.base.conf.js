@@ -38,15 +38,5 @@ module.exports = {
                 }
             },
         ],
-    },
-    plugins: [
-        // new webpack.IgnorePlugin({
-        //     checkResource(resource) {
-        //         switch(resource) {
-        //         case /.config/
-        //         }
-        //         return false
-        //     },
-        // })
-    ]
+    }
 }

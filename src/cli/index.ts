@@ -1,9 +1,9 @@
 import path from 'path'
-import { exec, ChildProcess } from 'child_process'
 import yargs from 'yargs'
 import chokidar from 'chokidar'
 
 import { transform } from '../compiler/babel'
+import startEntry from '../../executors'
 
 const yargsOptions = {
     srcDir: {
@@ -45,17 +45,6 @@ const sleep = (ms: number) => {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-const start = () : ChildProcess => {
-    const process = exec(
-        `node ${argv.entrypoint}`
-    )
-
-    process.stderr?.on('data', console.log)
-    process.stdout?.on('data', console.log)
-
-    return process
-}
-
 const build = async () => {
     console.log(`building ${src}`)
 
@@ -70,7 +59,7 @@ const watch = async () => {
 
     await build()
 
-    let childProc = start()
+    let childProc = startEntry(argv.entrypoint as string)
 
     const watcher = chokidar.watch(
         src,
@@ -86,7 +75,7 @@ const watch = async () => {
             await build()
             childProc.kill('SIGINT')
             await sleep(50)
-            childProc = start()
+            childProc = startEntry(argv.entrypoint as string)
         },
     )
 }
